@@ -8,11 +8,15 @@ import * as State from "./js/State.js";
 $(document).ready(function () {
   let plantArray = [];
   $("#new-plant").click(function () {
-    plantArray.push(State.stateControl(Plant.resetPlant));
+    plantArray.push({});
+    plantArray[plantArray.length - 1] = State.stateControl(Plant.resetPlant);
+    console.log(plantArray);
     // This function has side effects because we are using jQuery. Manipulating the DOM will always be a side effect. Note that we only use one of our functions to alter soil. You can easily add more.
-    
-    for (let i = 0; i < plantArray.length - 1; i++) {
-      $(".plants").html(`
+
+    $(".plants").empty();
+    for (let i = 0; i <= plantArray.length - 1; i++) {
+      $(".plants").append(`
+      <div class="plant" id="plant${i}">
       <div class="grow-buttons">
       <button class="btn-success" id="feed${i}">Add soil</button>
       <button class="btn-success" id="feed-solo${i}">Add a little soil</button>
@@ -22,23 +26,24 @@ $(document).ready(function () {
       <button class="btn-warning" id="super-light${i}">Put it under a sun lamp</button>
       <button class="btn-dark" id="show-state${i}">Current Stats</button>
       </div>
-      <h1>Your Plant's Values</h1>
+      <h1>Plant ${i + 1}'s Values</h1>
       <h3>
       Soil:
-      <div id="soil-value${i}">0</div>
+      <div id="soil-value${i}">${plantArray[i].soil}</div>
       </h3>
       <h3>
       Water:
-      <div id="water-value${i}">0</div>
+      <div id="water-value${i}">${plantArray[i].water}</div>
       </h3>
       <h3>
       Light:
-      <div id="light-value${i}">0</div>
+      <div id="light-value${i}">${plantArray[i].light}</div>
       </h3>
+      </div>
       `);
       $(`#feed${i}`).click(function () {
         plantArray[i] = State.stateControl(Plant.blueFood);
-        $("#soil-value").text(`${plantArray[i].soil}`);
+        $(`#soil-value${i}`).text(`${plantArray[i].soil}`);
       });
       $(`#feed-solo${i}`).click(function () {
         plantArray[i] = State.stateControl(Plant.feed);
@@ -60,19 +65,17 @@ $(document).ready(function () {
         plantArray[i] = State.stateControl(Plant.superLight);
         $(`#light-value${i}`).text(`${plantArray[i].light}`);
       });
-      
-      // This function doesn't actually do anything useful in this application - it just demonstrates how we can "look" at the current state (which the DOM is holding anyway). However, students often do need the ability to see the current state without changing it so it's included here for reference.
-      
+
       $(`#show-state${i}`).click(function () {
         // We just need to call stateControl() without arguments to see our current state.
-        plantArray[i] = State.stateControl();
+        // plantArray[i] = State.stateControl();
         $(`#soil-value${i}`).text(`${plantArray[i].soil}`);
         $(`#water-value${i}`).text(`${plantArray[i].water}`);
         $(`#light-value${i}`).text(`${plantArray[i].light}`);
       });
     }
   });
-  });
+});
 
 //make array of plants Plants[]
 //every time create plant is clicked, new object in array
