@@ -14,8 +14,6 @@ describe("Plant", () => {
       });
   });
 
-  // test('ChangeState returns function that changes the state of something')
-
   test("feed function increase soil value of plant", () => {
     const result = State.stateControl(Plant.feed);
     expect(result.soil).toEqual(1);

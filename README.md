@@ -36,3 +36,16 @@ _{Let people know what to do if they run into any issues or have questions, idea
 ## Contact Information
 
 _{Add your contact information here.}_
+
+create plant
+
+after clicking
+
+all the plant info appears w/ buttons
+
+every time create plant is clicked, get another plant
+
+plantCounter = 0;
+
+newPlantHtml = `all button and html in here button id = plantcounter+1`
+$("#wheretogo").append(newPlantHtml)
