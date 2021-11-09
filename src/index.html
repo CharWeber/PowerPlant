@@ -1,9 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>template-repo</title>
-</head>
-<body>
-  <h1>don't forget to change the titles in webpack.config too</h1>
-</body>
+<html>
+  <head>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="plant.js"></script>
+    <title>PowerPlant</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="grow-buttons">
+        <button class="btn-success" id="feed">Add soil</button>
+        <button class="btn-success" id="feed-solo">Add a little soil</button>
+        <button class="btn-primary" id="hydrate">Add water</button>
+        <button class="btn-primary" id="Super-Hydrate">Add Brawndo</button>
+        <button class="btn-warning" id="light">Put it under a lamp</button>
+        <button class="btn-warning" id="super-light">
+          Put it under a sun lamp
+        </button>
+        <button class="btn-dark" id="show-state">Current Stats</button>
+      </div>
+      <h1>Your Plant's Values</h1>
+      <h3>
+        Soil:
+        <div id="soil-value">0</div>
+      </h3>
+      <h3>
+        Water:
+        <div id="water-value">0</div>
+      </h3>
+      <h3>
+        Light:
+        <div id="light-value">0</div>
+      </h3>
+    </div>
+  </body>
 </html>
