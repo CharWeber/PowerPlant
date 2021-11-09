@@ -1,19 +1,19 @@
-# _{template-repo}_
+# _Power Plant_
 
-#### _{Brief description of application}_
+#### _State Storing exercise_
 
-#### By _**{List of contributors}**_
+#### By _**Charlie W, Ben W, Anna C, Nick H **_
 
 ## Technologies Used
 
-* _List all_
-* _the major technologies_
-* _you used in your project_
-* _here_
+* JS
+* HTML
+* Node
+* Jest
 
 ## Description
 
-_{This is a detailed description of your application. Give as much detail as needed to explain what the application does as well as any other information you want users or other developers to have.}_
+_small JS app designed to feed and care for virtual plants while practicing our functional programming skills_
 
 ## Setup/Installation Requirements
 

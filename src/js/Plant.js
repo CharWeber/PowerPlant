@@ -1,5 +1,13 @@
 import * as State from "./State.js";
 
+export class Plant {
+  constructor (soil, water, light) {
+    this.soil = soil;
+    this.water = water;
+    this.light = light;
+  }
+}
+
 export const feed = State.changeState("soil")(1);
 export const blueFood = State.changeState("soil")(5);
 
@@ -8,3 +16,5 @@ export const superWater = State.changeState("water")(5);
 
 export const light = State.changeState("light")(1);
 export const superLight = State.changeState("light")(5);
+
+export const resetPlant = State.resetAllState("soil", "water", "light");
