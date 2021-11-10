@@ -7,11 +7,12 @@ import * as State from "./js/State.js";
 
 $(document).ready(function () {
   let plantArray = [];
-  $("#new-plant").click(function () {
+  $("#new-plant").submit(function () {
+    event.preventDefault();
+    const inputName = $('#name').val();
     plantArray.push({});
     plantArray[plantArray.length - 1] = State.stateControl(Plant.resetPlant);
-    console.log(plantArray);
-    // This function has side effects because we are using jQuery. Manipulating the DOM will always be a side effect. Note that we only use one of our functions to alter soil. You can easily add more.
+    plantArray[plantArray.length - 1] = State.stateControl(Plant.assignName(inputName));
 
     $(".plants").empty();
     for (let i = 0; i <= plantArray.length - 1; i++) {
@@ -26,7 +27,7 @@ $(document).ready(function () {
       <button class="btn-warning" id="super-light${i}">Put it under a sun lamp</button>
       <button class="btn-dark" id="show-state${i}">Current Stats</button>
       </div>
-      <h1>Plant ${i + 1}'s Values</h1>
+      <h1>${plantArray[i].name}'s Values</h1>
       <h3>
       Soil:
       <div id="soil-value${i}">${plantArray[i].soil}</div>

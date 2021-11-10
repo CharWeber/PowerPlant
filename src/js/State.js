@@ -1,7 +1,6 @@
 export const storeState = () => {
   let currentState = {};
   return (stateChangeFunction = (state) => state) => {
-    // similar to the Feed VARfunction
     const newState = stateChangeFunction(currentState);
     currentState = { ...newState };
     return newState;
@@ -18,6 +17,16 @@ export const changeState = (prop) => {
     });
   };
 };
+
+export const changeStateString = (prop) => {
+  return (string) => {
+    return (state) => ({
+      ...state,
+      [prop]: (state[prop] || "") + string,
+    });
+  };
+};
+
 export const changeState2 = (prop, prop2) => {
   return (value) => {
     return (state) => ({
@@ -27,11 +36,12 @@ export const changeState2 = (prop, prop2) => {
     });
   };
 };
-export const resetAllState = (prop, prop2, prop3) => {
+export const resetAllState = (prop, prop2, prop3, prop4) => {
   return (state) => ({
     ...state,
-    [prop]: 0,
+    [prop]: "",
     [prop2]: 0,
     [prop3]: 0,
+    [prop4]: 0,
   });
 };
